@@ -1,6 +1,9 @@
+
+
+import client.movimento;
+
 import banco.banco;
 import client.client;
-import client.movimento;
 
 public class App {
    public static void main(String[] args) throws Exception {
