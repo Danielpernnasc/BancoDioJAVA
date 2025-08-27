@@ -1,5 +1,6 @@
-C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\App.java
 C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\banco\banco.java
 C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\banco\contaCorrente.java
+C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\banco\model\Conta.java
 C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\client\client.java
 C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\client\movimento.java
+C:\Users\Daniel\Desktop\JavaSpringBoot\BancoDigitalDIO\src\main\java\com\api\Rodar\App.java
