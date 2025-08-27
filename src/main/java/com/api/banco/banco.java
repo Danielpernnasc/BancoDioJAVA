@@ -10,6 +10,10 @@ public class banco {
     private final List<Integer> numerosContas;                  // lista imutável dos números (ex.: 1..5)
     private final Map<Integer, contaCorrente> contasPorNumero = new HashMap<>(); // número -> conta
     
+    // Removed duplicate method to resolve the compile error.
+
+   
+
     public banco(int agencia) {
         this.agencia = agencia;
         this.numerosContas = List.of(0001, 0002, 0003, 0004, 0005);
@@ -29,6 +33,7 @@ public class banco {
         return agencia;
         
     }
+
 
     public List<Integer> getNumerosContas() {
         return numerosContas;

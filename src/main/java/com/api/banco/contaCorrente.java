@@ -1,13 +1,12 @@
 package banco;
 
-public class contaCorrente {
+import banco.model.Conta;
+
+public class contaCorrente implements Conta {
     public double saldo;
     public double investimento;
     public double limite;
     public double cartaoCredito;
-
-
-
 
     public contaCorrente(double saldo, double investimento, double limite, double cartaoCredito) {
         this.saldo = saldo;
@@ -17,19 +16,18 @@ public class contaCorrente {
        
     }
  
-
+    @Override
     public void debitar(double valor){
-        if(valor > 0  && valor <= this.saldo){
-            this.saldo -= valor;
-            System.out.println("Saque no valor de $" + valor +  " realizado com sucesso! Novo saldo: $" + this.saldo);
-        } else {
-            System.out.println(String.format(
-                    "Saque de R$ %.2f realizado com sucesso! Novo saldo: R$ %.2f | Limite disponível: R$ %.2f",
-                    valor, this.saldo, getLimiteDisponivel()));
-        }
+        if (valor <= 0)
+            throw new IllegalArgumentException("Valor inválido para débito.");
+        if (valor > (this.saldo + this.limite))
+            throw new IllegalArgumentException("Sem saldo/limite suficiente.");
+        this.saldo -= valor;
+    } 
 
-    }
+    
 
+    @Override
     public void deposito(double valor){
         if(valor > 0 && valor <= this.saldo){
             this.saldo += valor;
@@ -39,11 +37,22 @@ public class contaCorrente {
         }
     }
 
+    @Override
     public double render(double valor, int anos) {
         if (anos <= 0) anos = 1;
         double retorno = valor * (Math.pow(1.10, anos) - 1.0); // capitalização anual
         this.investimento += retorno;
         return retorno;
+    }
+
+    @Override
+    public double getSaldo() {
+        return saldo;
+    }
+
+    @Override
+    public double getInvestimento() {
+        return investimento;
     }
 
     public double getLimiteDisponivel() {
@@ -80,29 +89,23 @@ public class contaCorrente {
         }
 
     }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public double getCartaoCredito() {
+        return cartaoCredito;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Saldo: R$ %.2f | Investimento: R$ %.2f | Limite: R$ %.2f | Cartão de Crédito: R$ %.2f",
+                this.saldo, this.investimento, this.limite, this.cartaoCredito);
+    }
  
 
 
-    private void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-    private double getInvestimento(double investimento) {
-        return investimento;
-    }
-    private void setInvestimento(int investimento) {
-        this.investimento = investimento;
-    }
-    private double getLimite() {
-        return limite;
-    }
-    private void setLimite(double limite) {
-        this.limite = limite;
-    }
-    private double getCartaoCredito() {
-        return cartaoCredito;
-    }
-    private void setCartaoCredito(double cartaoCredito) {
-        this.cartaoCredito = cartaoCredito;
-    }
+   
 
 }
