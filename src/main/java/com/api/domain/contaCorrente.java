@@ -1,4 +1,4 @@
-package banco;
+package domain;
 
 public class contaCorrente {
     public double saldo;

@@ -1,9 +1,8 @@
 
 
-import client.movimento;
-
-import banco.banco;
-import client.client;
+import domain.client;
+import domain.movimento;
+import service.banco;
 
 public class App {
    public static void main(String[] args) throws Exception {

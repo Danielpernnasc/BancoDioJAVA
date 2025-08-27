@@ -1,9 +1,8 @@
-package client;
+package domain;
 
 
 
-import banco.banco;
-import banco.contaCorrente;
+import service.banco;
 
 public class client {
     private int numeroConta;
@@ -14,14 +13,7 @@ public class client {
     private final banco bank;
     private final contaCorrente conta = new contaCorrente(1000, 5000, 2000, 1500);
 
-   
-    public void cliente(String nome) {
-        
-        this.nome = nome;
-        // this.cpf = cpf;
-        // this.email = email;
-        // this.conta = conta;
-    }
+
 
     public String getNome() {
         return nome;
