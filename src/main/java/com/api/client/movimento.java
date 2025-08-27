@@ -1,4 +1,8 @@
-package domain;
+package client;
+
+
+
+import banco.contaCorrente;
 
 public class movimento {
 

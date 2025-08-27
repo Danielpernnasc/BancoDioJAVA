@@ -1,8 +1,8 @@
+package Rodar;
 
-
-import domain.client;
-import domain.movimento;
-import service.banco;
+import banco.banco;
+import client.client;
+import client.movimento;
 
 public class App {
    public static void main(String[] args) throws Exception {
