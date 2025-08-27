@@ -7,12 +7,12 @@ Welcome to the VS Code Java world. Here is a guideline to help you get started t
 The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `li# Banco Digital DIO
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Projeto de um banco digital em Java, utilizando os 4 pilares da Programação Orientada a Objetos (OOP): Encapsulamento, Abstração, Herança e Polimorfismo.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Estrutura de Pastas
 
-## Dependency Management
+BancoDigitalDIO/ ├─ src/ │ └─ main/ │ └─ java/ │ ├─ com/ │ │ └─ api/ │ │ └─ Rodar/ │ │ └─ App.java │ ├─ banco/ │ │ ├─ banco.java │ │ └─ contaCorrente.java │ └─ client/ │ ├─ client.java │ └─ movimento.java
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+BancoDigitalDIO/ ├─ src/ │ └─ main/ │ └─ java/ │ ├─ com/ │ │ └─ api/ │ │ └─ Rodar/ │ │ └─ App.java │ ├─ banco/ │ │ ├─ banco.java │ │ └─ contaCorrente.java │ └─ client/ │ ├─ client.java │ └─ movimento.java
