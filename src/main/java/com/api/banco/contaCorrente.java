@@ -8,6 +8,14 @@ public class contaCorrente implements Conta {
     public double limite;
     public double cartaoCredito;
 
+    public contaCorrente(double saldo, double investimento, double limite, double cartaoCredito) {
+        this.saldo = saldo;
+        this.investimento = investimento;
+        this.limite = limite;
+        this.cartaoCredito = cartaoCredito;
+
+    }
+
     @Override
     public double getSaldo(double valor) {
         return this.saldo;
@@ -23,30 +31,25 @@ public class contaCorrente implements Conta {
         return (this.saldo < 0) ? (this.limite + this.saldo) : this.limite;
     }
 
-    public contaCorrente(double saldo, double investimento, double limite, double cartaoCredito) {
-        this.saldo = saldo;
-        this.investimento = investimento;
-        this.limite = limite;
-        this.cartaoCredito = cartaoCredito;
-       
-    }
  
     @Override
-    public void debitar(double valor){
+    public double debitar(double valor){
         if (valor <= 0)
             throw new IllegalArgumentException("Valor inválido para débito.");
         if (valor > (this.saldo + this.limite))
             throw new IllegalArgumentException("Sem saldo/limite suficiente.");
         this.saldo -= valor;
+        return this.saldo; // Return the updated saldo
     } 
 
     
 
     @Override
-    public void deposito(double valor){
-        if(valor > 0 && valor <= this.saldo){
+    public double deposito(double valor){
+        if(valor > 0){
             this.saldo += valor;
             System.out.println("Depósito no valor de $" + valor +  " realizado com sucesso! Novo saldo: $" + this.saldo);
+            return this.saldo;
         } else {
             throw new IllegalArgumentException("Valor inválido para depósito.");
         }
@@ -58,20 +61,6 @@ public class contaCorrente implements Conta {
         double retorno = valor * (Math.pow(1.10, anos) - 1.0); // capitalização anual
         this.investimento += retorno;
         return retorno;
-    }
-
-
- 
-    public double getSaldo() { // Ensure this matches the method signature in the Conta interface
-        return saldo;
-    }
-
-    public double getInvestimento() {
-        return investimento;
-    }
-
-    public double getLimiteDisponivel() {
-        return (this.saldo < 0) ? (this.limite + this.saldo) : this.limite;
     }
 
     @Override
@@ -109,11 +98,13 @@ public class contaCorrente implements Conta {
         return this.cartaoCredito; // Return the current cartaoCredito balance as a fallback
     }
 
-    public double getLimite() {
+    @Override
+    public double getLimite(double valor) {
         return limite;
     }
 
-    public double getCartaoCredito() {
+    @Override
+    public double getCartaoCredito(double valor) {
         return cartaoCredito;
     }
 

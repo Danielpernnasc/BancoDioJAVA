@@ -1,9 +1,9 @@
 package banco.model;
 
 public interface Conta {
-    void debitar(double valor);
+    double debitar(double valor);
 
-    void deposito(double valor);
+    double deposito(double valor);
 
     double render(double valor, int anos);
 
@@ -16,4 +16,8 @@ public interface Conta {
     double resgateInv(double valor);
 
     double pagarCCredito(double valor);
+
+    double getLimite(double valor);
+
+    double getCartaoCredito(double valor);
 }
