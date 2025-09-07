@@ -7,9 +7,13 @@ public interface Conta {
 
     double render(double valor, int anos);
 
-    double getSaldo();
+    double getSaldo(double valor);
 
-    double getInvestimento();
+    double getInvestimento(double valor);
 
-    double getLimiteDisponivel();
+    double getLimiteDisponivel(double valor);
+    
+    double resgateInv(double valor);
+
+    double pagarCCredito(double valor);
 }

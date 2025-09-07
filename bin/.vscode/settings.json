@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src/com/api",
+        "src/main/java/com/api"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}

@@ -8,6 +8,21 @@ public class contaCorrente implements Conta {
     public double limite;
     public double cartaoCredito;
 
+    @Override
+    public double getSaldo(double valor) {
+        return this.saldo;
+    }
+
+    @Override
+    public double getInvestimento(double valor) {
+        return this.investimento;
+    }
+
+    @Override
+    public double getLimiteDisponivel(double valor) {
+        return (this.saldo < 0) ? (this.limite + this.saldo) : this.limite;
+    }
+
     public contaCorrente(double saldo, double investimento, double limite, double cartaoCredito) {
         this.saldo = saldo;
         this.investimento = investimento;
@@ -45,12 +60,12 @@ public class contaCorrente implements Conta {
         return retorno;
     }
 
-    @Override
-    public double getSaldo() {
+
+ 
+    public double getSaldo() { // Ensure this matches the method signature in the Conta interface
         return saldo;
     }
 
-    @Override
     public double getInvestimento() {
         return investimento;
     }
@@ -59,35 +74,39 @@ public class contaCorrente implements Conta {
         return (this.saldo < 0) ? (this.limite + this.saldo) : this.limite;
     }
 
-    public void resgateInv(double valor) {
+    @Override
+    public double resgateInv(double valor) {
         if (valor > 0 && valor <= this.investimento) {
             this.investimento -= valor;
             this.saldo += valor;
             System.out.println(String.format(
                     "Resgate de R$ %.2f do investimento realizado! Saldo: R$ %.2f | Investimento restante: R$ %.2f",
                     valor, this.saldo, this.investimento));
+            return valor; // Return the amount successfully withdrawn
         } else {
             if (valor <= 0)
                 throw new IllegalArgumentException("Valor inválido para resgate.");
             if (valor > this.investimento)
                 throw new IllegalArgumentException("Investimento insuficiente para resgate.");
         }
-
+        return 0; // Return 0 as a fallback if no resgate is performed
     }
 
-    public void pagarCCredito(double valor) {
+    @Override
+    public double pagarCCredito(double valor) {
         if (valor > 0 && valor <= this.cartaoCredito) {
             this.cartaoCredito -= valor;
             System.out.println(String.format(
                     "Pagamento de R$ %.2f no cartão de crédito realizado! Saldo do cartão: R$ %.2f",
                     valor, this.cartaoCredito));
+            return this.cartaoCredito;
         } else {
             if (valor <= 0)
                 throw new IllegalArgumentException("Valor inválido para pagamento.");
             if (valor > this.cartaoCredito)
                 throw new IllegalArgumentException("Saldo insuficiente no cartão de crédito para pagamento.");
         }
-
+        return this.cartaoCredito; // Return the current cartaoCredito balance as a fallback
     }
 
     public double getLimite() {
