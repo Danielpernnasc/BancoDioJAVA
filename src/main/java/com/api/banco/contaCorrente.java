@@ -17,39 +17,39 @@ public class contaCorrente implements Conta {
     }
 
     @Override
-    public double getSaldo(double valor) {
+    public double getSaldo() {
         return this.saldo;
     }
 
     @Override
-    public double getInvestimento(double valor) {
+    public double getInvestimento() {
         return this.investimento;
     }
 
     @Override
-    public double getLimiteDisponivel(double valor) {
+    public double getLimiteDisponivel() {
         return (this.saldo < 0) ? (this.limite + this.saldo) : this.limite;
     }
 
  
     @Override
-    public double debitar(double valor){
+    public void debitar(double valor){
         if (valor <= 0)
             throw new IllegalArgumentException("Valor inválido para débito.");
         if (valor > (this.saldo + this.limite))
             throw new IllegalArgumentException("Sem saldo/limite suficiente.");
         this.saldo -= valor;
-        return this.saldo; // Return the updated saldo
+        return; // Return the updated saldo
     } 
 
     
 
     @Override
-    public double deposito(double valor){
+    public void deposito(double valor){
         if(valor > 0){
             this.saldo += valor;
             System.out.println("Depósito no valor de $" + valor +  " realizado com sucesso! Novo saldo: $" + this.saldo);
-            return this.saldo;
+            return;
         } else {
             throw new IllegalArgumentException("Valor inválido para depósito.");
         }
@@ -99,12 +99,12 @@ public class contaCorrente implements Conta {
     }
 
     @Override
-    public double getLimite(double valor) {
+    public double getLimite() {
         return limite;
     }
 
     @Override
-    public double getCartaoCredito(double valor) {
+    public double getCartaoCredito() {
         return cartaoCredito;
     }
 

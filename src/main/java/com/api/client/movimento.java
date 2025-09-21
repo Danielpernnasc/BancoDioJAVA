@@ -28,7 +28,7 @@ public class movimento {
 
 
     public void limiteDisp(){
-        double disp = this.saldo.getLimiteDisponivel(0.0); // Pass a default value or appropriate argument
+        double disp = this.saldo.getLimiteDisponivel(); // Adjusted to match the method signature
         System.out.printf("Limite disponível: R$ %.2f%n", disp);
     }
  

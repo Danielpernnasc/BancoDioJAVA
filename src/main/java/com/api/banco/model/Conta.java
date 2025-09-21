@@ -1,23 +1,23 @@
 package banco.model;
 
 public interface Conta {
-    double debitar(double valor);
+    void debitar(double valor);
 
-    double deposito(double valor);
+    void deposito(double valor);
 
     double render(double valor, int anos);
 
-    double getSaldo(double valor);
+    double getSaldo();
 
-    double getInvestimento(double valor);
+    double getInvestimento();
 
-    double getLimiteDisponivel(double valor);
-    
+    double getLimiteDisponivel();
+
     double resgateInv(double valor);
 
     double pagarCCredito(double valor);
 
-    double getLimite(double valor);
+    double getLimite();
 
-    double getCartaoCredito(double valor);
+    double getCartaoCredito();
 }
